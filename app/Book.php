@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @package App
  * @property string $name
+ * @property string $image
 */
 class Book extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'image'];
     protected $hidden = [];
     public static $searchable = [
         'name',

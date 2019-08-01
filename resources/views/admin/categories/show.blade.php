@@ -33,6 +33,7 @@
         <tr>
             <th>@lang('global.book.fields.name')</th>
                         <th>@lang('global.book.fields.category')</th>
+                        <th>@lang('global.book.fields.image')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -51,6 +52,7 @@
                                         <span class="label label-info label-many">{{ $singleCategory->name }}</span>
                                     @endforeach
                                 </td>
+                                <td field-key='image'>@if($book->image)<a href="{{ asset(env('UPLOAD_PATH').'/' . $book->image) }}" target="_blank"><img src="{{ asset(env('UPLOAD_PATH').'/thumb/' . $book->image) }}"/></a>@endif</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     {!! Form::open(array(
@@ -91,7 +93,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="7">@lang('global.app_no_entries_in_table')</td>
+                <td colspan="8">@lang('global.app_no_entries_in_table')</td>
             </tr>
         @endif
     </tbody>

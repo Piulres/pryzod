@@ -26,11 +26,13 @@ class BookTest extends DuskTestCase
                 ->type("name", $book->name)
                 ->select('select[name="category[]"]', $relations[0]->id)
                 ->select('select[name="category[]"]', $relations[1]->id)
+                ->attach("image", base_path("tests/_resources/test.jpg"))
                 ->press('Save')
                 ->assertRouteIs('admin.books.index')
                 ->assertSeeIn("tr:last-child td[field-key='name']", $book->name)
                 ->assertSeeIn("tr:last-child td[field-key='category'] span:first-child", $relations[0]->name)
                 ->assertSeeIn("tr:last-child td[field-key='category'] span:last-child", $relations[1]->name)
+                ->assertVisible("img[src='" . env("APP_URL") . "/" . env("UPLOAD_PATH") . "/thumb/" . \App\Book::first()->image . "']")
                 ->logout();
         });
     }
@@ -53,11 +55,13 @@ class BookTest extends DuskTestCase
                 ->type("name", $book2->name)
                 ->select('select[name="category[]"]', $relations[0]->id)
                 ->select('select[name="category[]"]', $relations[1]->id)
+                ->attach("image", base_path("tests/_resources/test.jpg"))
                 ->press('Update')
                 ->assertRouteIs('admin.books.index')
                 ->assertSeeIn("tr:last-child td[field-key='name']", $book2->name)
                 ->assertSeeIn("tr:last-child td[field-key='category'] span:first-child", $relations[0]->name)
                 ->assertSeeIn("tr:last-child td[field-key='category'] span:last-child", $relations[1]->name)
+                ->assertVisible("img[src='" . env("APP_URL") . "/" . env("UPLOAD_PATH") . "/thumb/" . \App\Book::first()->image . "']")
                 ->logout();
         });
     }

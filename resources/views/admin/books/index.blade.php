@@ -35,6 +35,7 @@
 
                         <th>@lang('global.book.fields.name')</th>
                         <th>@lang('global.book.fields.category')</th>
+                        <th>@lang('global.book.fields.image')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -60,6 +61,7 @@
                 @endif
                 @endcan{data: 'name', name: 'name'},
                 {data: 'category.name', name: 'category.name'},
+                {data: 'image', name: 'image'},
                 
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];
