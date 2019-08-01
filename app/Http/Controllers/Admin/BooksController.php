@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreBooksRequest;
 use App\Http\Requests\Admin\UpdateBooksRequest;
+use App\Http\Controllers\Traits\FileUploadTrait;
 use Yajra\DataTables\DataTables;
 
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 class BooksController extends Controller
 {
+    use FileUploadTrait;
+
     /**
      * Display a listing of Book.
      *
@@ -43,6 +46,7 @@ class BooksController extends Controller
             $query->select([
                 'books.id',
                 'books.name',
+                'books.image',
             ]);
             $table = Datatables::of($query);
 
@@ -68,8 +72,11 @@ class BooksController extends Controller
                 return '<span class="label label-info label-many">' . implode('</span><span class="label label-info label-many"> ',
                         $row->category->pluck('name')->toArray()) . '</span>';
             });
+            $table->editColumn('image', function ($row) {
+                if($row->image) { return '<a href="'. asset(env('UPLOAD_PATH').'/' . $row->image) .'" target="_blank"><img src="'. asset(env('UPLOAD_PATH').'/thumb/' . $row->image) .'"/>'; };
+            });
 
-            $table->rawColumns(['actions','massDelete','category.name']);
+            $table->rawColumns(['actions','massDelete','category.name','image']);
 
             return $table->make(true);
         }
@@ -105,6 +112,7 @@ class BooksController extends Controller
         if (! Gate::allows('book_create')) {
             return abort(401);
         }
+        $request = $this->saveFiles($request);
         $book = Book::create($request->all());
         $book->category()->sync(array_filter((array)$request->input('category')));
 
@@ -146,6 +154,7 @@ class BooksController extends Controller
         if (! Gate::allows('book_edit')) {
             return abort(401);
         }
+        $request = $this->saveFiles($request);
         $book = Book::findOrFail($id);
         $book->update($request->all());
         $book->category()->sync(array_filter((array)$request->input('category')));

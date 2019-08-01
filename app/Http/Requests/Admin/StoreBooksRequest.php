@@ -24,6 +24,7 @@ class StoreBooksRequest extends FormRequest
     {
         return [
             'category.*' => 'exists:categories,id',
+            'image' => 'nullable|mimes:png,jpg,jpeg,gif',
         ];
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
     <h3 class="page-title">@lang('global.book.title')</h3>
     
-    {!! Form::model($book, ['method' => 'PUT', 'route' => ['admin.books.update', $book->id]]) !!}
+    {!! Form::model($book, ['method' => 'PUT', 'route' => ['admin.books.update', $book->id], 'files' => true,]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -37,6 +37,24 @@
                     @if($errors->has('category'))
                         <p class="help-block">
                             {{ $errors->first('category') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    @if ($book->image)
+                        <a href="{{ asset(env('UPLOAD_PATH').'/'.$book->image) }}" target="_blank"><img src="{{ asset(env('UPLOAD_PATH').'/thumb/'.$book->image) }}"></a>
+                    @endif
+                    {!! Form::label('image', trans('global.book.fields.image').'', ['class' => 'control-label']) !!}
+                    {!! Form::file('image', ['class' => 'form-control', 'style' => 'margin-top: 4px;']) !!}
+                    {!! Form::hidden('image_max_size', 4) !!}
+                    {!! Form::hidden('image_max_width', 4096) !!}
+                    {!! Form::hidden('image_max_height', 4096) !!}
+                    <p class="help-block">Insert image</p>
+                    @if($errors->has('image'))
+                        <p class="help-block">
+                            {{ $errors->first('image') }}
                         </p>
                     @endif
                 </div>

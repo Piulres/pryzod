@@ -9,7 +9,7 @@ return [
 		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [			'user' => 'User',			'action' => 'Action',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
 		'internal-notifications' => [		'title' => 'Notifications',		'fields' => [			'text' => 'Text',			'link' => 'Link',			'users' => 'Users',		],	],
 		'category' => [		'title' => 'Category',		'fields' => [			'name' => 'Name',		],	],
-		'book' => [		'title' => 'Book',		'fields' => [			'name' => 'Name',			'category' => 'Category',		],	],
+		'book' => [		'title' => 'Book',		'fields' => [			'name' => 'Name',			'category' => 'Category',			'image' => 'Image',		],	],
 	'app_create' => 'Criar',
 	'app_save' => 'Guardar',
 	'app_edit' => 'Editar',

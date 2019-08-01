@@ -16,6 +16,7 @@ class CreateCombined1564583705BooksTable extends Migration
             Schema::create('books', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name')->nullable();
+                $table->string('image')->nullable();
                 
                 $table->timestamps();
                 $table->softDeletes();

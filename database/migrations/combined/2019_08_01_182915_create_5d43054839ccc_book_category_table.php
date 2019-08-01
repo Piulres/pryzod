@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Create5d41a72350278BookCategoryTable extends Migration
+class Create5d43054839cccBookCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,9 @@ class Create5d41a72350278BookCategoryTable extends Migration
         if(! Schema::hasTable('book_category')) {
             Schema::create('book_category', function (Blueprint $table) {
                 $table->integer('book_id')->unsigned()->nullable();
-                $table->foreign('book_id', 'fk_p_330001_330000_catego_5d41a723503ff')->references('id')->on('books')->onDelete('cascade');
+                $table->foreign('book_id', 'fk_p_330001_330000_catego_5d43054839dc4')->references('id')->on('books')->onDelete('cascade');
                 $table->integer('category_id')->unsigned()->nullable();
-                $table->foreign('category_id', 'fk_p_330000_330001_book_c_5d41a723504c6')->references('id')->on('categories')->onDelete('cascade');
+                $table->foreign('category_id', 'fk_p_330000_330001_book_c_5d43054839e53')->references('id')->on('categories')->onDelete('cascade');
                 
             });
         }

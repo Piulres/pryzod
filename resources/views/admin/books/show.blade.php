@@ -24,6 +24,10 @@
                                 @endforeach
                             </td>
                         </tr>
+                        <tr>
+                            <th>@lang('global.book.fields.image')</th>
+                            <td field-key='image'>@if($book->image)<a href="{{ asset(env('UPLOAD_PATH').'/' . $book->image) }}" target="_blank"><img src="{{ asset(env('UPLOAD_PATH').'/thumb/' . $book->image) }}"/></a>@endif</td>
+                        </tr>
                     </table>
                 </div>
             </div>
