@@ -114,6 +114,59 @@
                 </ul>
             </li>@endcan
             
+            @can('expense_management_access')
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-money"></i>
+                    <span>@lang('global.expense-management.title')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @can('expense_category_access')
+                    <li>
+                        <a href="{{ route('admin.expense_categories.index') }}">
+                            <i class="fa fa-list"></i>
+                            <span>@lang('global.expense-category.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('income_category_access')
+                    <li>
+                        <a href="{{ route('admin.income_categories.index') }}">
+                            <i class="fa fa-list"></i>
+                            <span>@lang('global.income-category.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('income_access')
+                    <li>
+                        <a href="{{ route('admin.incomes.index') }}">
+                            <i class="fa fa-arrow-circle-right"></i>
+                            <span>@lang('global.income.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('expense_access')
+                    <li>
+                        <a href="{{ route('admin.expenses.index') }}">
+                            <i class="fa fa-arrow-circle-left"></i>
+                            <span>@lang('global.expense.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('monthly_report_access')
+                    <li>
+                        <a href="{{ route('admin.monthly_reports.index') }}">
+                            <i class="fa fa-line-chart"></i>
+                            <span>@lang('global.monthly-report.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                </ul>
+            </li>@endcan
+            
             @can('book_access')
             <li class="treeview">
                 <a href="#">
@@ -141,6 +194,14 @@
                     </li>@endcan
                     
                 </ul>
+            </li>@endcan
+            
+            @can('internal_notification_access')
+            <li>
+                <a href="{{ route('admin.internal_notifications.index') }}">
+                    <i class="fa fa-briefcase"></i>
+                    <span>@lang('global.internal-notifications.title')</span>
+                </a>
             </li>@endcan
             
             @can('contact_management_access')
