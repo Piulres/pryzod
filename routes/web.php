@@ -41,6 +41,27 @@ Route::group(['middleware' => ['auth', 'approved'], 'prefix' => 'admin', 'as' =>
     Route::post('books_mass_destroy', ['uses' => 'Admin\BooksController@massDestroy', 'as' => 'books.mass_destroy']);
     Route::post('books_restore/{id}', ['uses' => 'Admin\BooksController@restore', 'as' => 'books.restore']);
     Route::delete('books_perma_del/{id}', ['uses' => 'Admin\BooksController@perma_del', 'as' => 'books.perma_del']);
+    Route::resource('contact_companies', 'Admin\ContactCompaniesController');
+    Route::post('contact_companies_mass_destroy', ['uses' => 'Admin\ContactCompaniesController@massDestroy', 'as' => 'contact_companies.mass_destroy']);
+    Route::resource('contacts', 'Admin\ContactsController');
+    Route::post('contacts_mass_destroy', ['uses' => 'Admin\ContactsController@massDestroy', 'as' => 'contacts.mass_destroy']);
+    Route::resource('crm_statuses', 'Admin\CrmStatusesController');
+    Route::post('crm_statuses_mass_destroy', ['uses' => 'Admin\CrmStatusesController@massDestroy', 'as' => 'crm_statuses.mass_destroy']);
+    Route::resource('crm_customers', 'Admin\CrmCustomersController');
+    Route::post('crm_customers_mass_destroy', ['uses' => 'Admin\CrmCustomersController@massDestroy', 'as' => 'crm_customers.mass_destroy']);
+    Route::resource('crm_notes', 'Admin\CrmNotesController');
+    Route::post('crm_notes_mass_destroy', ['uses' => 'Admin\CrmNotesController@massDestroy', 'as' => 'crm_notes.mass_destroy']);
+    Route::resource('crm_documents', 'Admin\CrmDocumentsController');
+    Route::post('crm_documents_mass_destroy', ['uses' => 'Admin\CrmDocumentsController@massDestroy', 'as' => 'crm_documents.mass_destroy']);
+    Route::resource('teams', 'Admin\TeamsController');
+    Route::post('teams_mass_destroy', ['uses' => 'Admin\TeamsController@massDestroy', 'as' => 'teams.mass_destroy']);
+    Route::resource('time_work_types', 'Admin\TimeWorkTypesController');
+    Route::post('time_work_types_mass_destroy', ['uses' => 'Admin\TimeWorkTypesController@massDestroy', 'as' => 'time_work_types.mass_destroy']);
+    Route::resource('time_projects', 'Admin\TimeProjectsController');
+    Route::post('time_projects_mass_destroy', ['uses' => 'Admin\TimeProjectsController@massDestroy', 'as' => 'time_projects.mass_destroy']);
+    Route::resource('time_entries', 'Admin\TimeEntriesController');
+    Route::post('time_entries_mass_destroy', ['uses' => 'Admin\TimeEntriesController@massDestroy', 'as' => 'time_entries.mass_destroy']);
+    Route::resource('time_reports', 'Admin\TimeReportsController');
 
     Route::model('messenger', 'App\MessengerTopic');
     Route::get('messenger/inbox', 'Admin\MessengerController@inbox')->name('messenger.inbox');

@@ -58,6 +58,59 @@
                         </a>
                     </li>@endcan
                     
+                    @can('team_access')
+                    <li>
+                        <a href="{{ route('admin.teams.index') }}">
+                            <i class="fa fa-users"></i>
+                            <span>@lang('global.teams.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                </ul>
+            </li>@endcan
+            
+            @can('time_management_access')
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-clock-o"></i>
+                    <span>@lang('global.time-management.title')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @can('time_work_type_access')
+                    <li>
+                        <a href="{{ route('admin.time_work_types.index') }}">
+                            <i class="fa fa-th"></i>
+                            <span>@lang('global.time-work-types.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('time_project_access')
+                    <li>
+                        <a href="{{ route('admin.time_projects.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span>@lang('global.time-projects.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('time_entry_access')
+                    <li>
+                        <a href="{{ route('admin.time_entries.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span>@lang('global.time-entries.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('time_report_access')
+                    <li>
+                        <a href="{{ route('admin.time_reports.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span>@lang('global.time-reports.title')</span>
+                        </a>
+                    </li>@endcan
+                    
                 </ul>
             </li>@endcan
             
@@ -90,12 +143,78 @@
                 </ul>
             </li>@endcan
             
-            @can('internal_notification_access')
-            <li>
-                <a href="{{ route('admin.internal_notifications.index') }}">
-                    <i class="fa fa-briefcase"></i>
-                    <span>@lang('global.internal-notifications.title')</span>
+            @can('contact_management_access')
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-phone-square"></i>
+                    <span>@lang('global.contact-management.title')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                    @can('contact_company_access')
+                    <li>
+                        <a href="{{ route('admin.contact_companies.index') }}">
+                            <i class="fa fa-building-o"></i>
+                            <span>@lang('global.contact-companies.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('contact_access')
+                    <li>
+                        <a href="{{ route('admin.contacts.index') }}">
+                            <i class="fa fa-user-plus"></i>
+                            <span>@lang('global.contacts.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                </ul>
+            </li>@endcan
+            
+            @can('basic_crm_access')
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-briefcase"></i>
+                    <span>@lang('global.basic-crm.title')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @can('crm_status_access')
+                    <li>
+                        <a href="{{ route('admin.crm_statuses.index') }}">
+                            <i class="fa fa-folder"></i>
+                            <span>@lang('global.crm-statuses.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('crm_customer_access')
+                    <li>
+                        <a href="{{ route('admin.crm_customers.index') }}">
+                            <i class="fa fa-user-plus"></i>
+                            <span>@lang('global.crm-customers.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('crm_note_access')
+                    <li>
+                        <a href="{{ route('admin.crm_notes.index') }}">
+                            <i class="fa fa-building-o"></i>
+                            <span>@lang('global.crm-notes.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                    @can('crm_document_access')
+                    <li>
+                        <a href="{{ route('admin.crm_documents.index') }}">
+                            <i class="fa fa-file"></i>
+                            <span>@lang('global.crm-documents.title')</span>
+                        </a>
+                    </li>@endcan
+                    
+                </ul>
             </li>@endcan
             
 

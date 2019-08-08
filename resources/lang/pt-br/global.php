@@ -4,12 +4,26 @@ return [
 		'user-management' => [		'title' => 'User management',		'fields' => [		],	],
 		'permissions' => [		'title' => 'Permissions',		'fields' => [			'title' => 'Title',		],	],
 		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'permission' => 'Permissions',		],	],
-		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',			'approved' => 'Approved',		],	],
+		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',			'approved' => 'Approved',			'team' => 'Team',		],	],
 		'books' => [		'title' => 'Books',		'fields' => [		],	],
 		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [			'user' => 'User',			'action' => 'Action',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
 		'internal-notifications' => [		'title' => 'Notifications',		'fields' => [			'text' => 'Text',			'link' => 'Link',			'users' => 'Users',		],	],
 		'category' => [		'title' => 'Category',		'fields' => [			'name' => 'Name',		],	],
 		'book' => [		'title' => 'Book',		'fields' => [			'name' => 'Name',			'category' => 'Category',			'image' => 'Image',		],	],
+		'contact-management' => [		'title' => 'Contact management',		'fields' => [		],	],
+		'contact-companies' => [		'title' => 'Companies',		'fields' => [			'name' => 'Company name',			'address' => 'Address',			'website' => 'Website',			'email' => 'Email',		],	],
+		'contacts' => [		'title' => 'Contacts',		'fields' => [			'company' => 'Company',			'first-name' => 'First name',			'last-name' => 'Last name',			'phone1' => 'Phone 1',			'phone2' => 'Phone 2',			'email' => 'Email',			'skype' => 'Skype',			'address' => 'Address',		],	],
+		'basic-crm' => [		'title' => 'Basic CRM',		'fields' => [		],	],
+		'crm-statuses' => [		'title' => 'Statuses',		'fields' => [			'title' => 'Title',		],	],
+		'crm-customers' => [		'title' => 'Customers',		'fields' => [			'first-name' => 'First name',			'last-name' => 'Last name',			'crm-status' => 'Status',			'email' => 'Email',			'phone' => 'Phone',			'address' => 'Address',			'skype' => 'Skype',			'website' => 'Website',			'description' => 'Description',		],	],
+		'crm-notes' => [		'title' => 'Notes',		'fields' => [			'customer' => 'Customer',			'note' => 'Notes',		],	],
+		'crm-documents' => [		'title' => 'Documents',		'fields' => [			'customer' => 'Customer',			'name' => 'Title',			'description' => 'Description',			'file' => 'File',		],	],
+		'teams' => [		'title' => 'Teams',		'fields' => [			'name' => 'Name',		],	],
+		'time-management' => [		'title' => 'Time management',		'fields' => [		],	],
+		'time-work-types' => [		'title' => 'Work types',		'fields' => [			'name' => 'Name',		],	],
+		'time-projects' => [		'title' => 'Projects',		'fields' => [			'name' => 'Name',		],	],
+		'time-entries' => [		'title' => 'Time entries',		'fields' => [			'work-type' => 'Work type',			'project' => 'Project',			'start-time' => 'Start time',			'end-time' => 'End time',		],	],
+		'time-reports' => [		'title' => 'Reports',		'fields' => [		],	],
 	'app_create' => 'Criar',
 	'app_save' => 'Guardar',
 	'app_edit' => 'Editar',

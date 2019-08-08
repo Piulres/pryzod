@@ -31,6 +31,7 @@
                         <th>@lang('global.users.fields.email')</th>
                         <th>@lang('global.users.fields.role')</th>
                         <th>@lang('global.users.fields.approved')</th>
+                        <th>@lang('global.users.fields.team')</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -52,6 +53,7 @@
                                     @endforeach
                                 </td>
                                 <td field-key='approved'>{{ Form::checkbox("approved", 1, $user->approved == 1 ? true : false, ["disabled"]) }}</td>
+                                <td field-key='team'>{{ $user->team->name ?? '' }}</td>
                                                                 <td>
                                     @can('user_view')
                                     <a href="{{ route('admin.users.show',[$user->id]) }}" class="btn btn-xs btn-primary">@lang('global.app_view')</a>
@@ -74,7 +76,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="11">@lang('global.app_no_entries_in_table')</td>
+                            <td colspan="12">@lang('global.app_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>
