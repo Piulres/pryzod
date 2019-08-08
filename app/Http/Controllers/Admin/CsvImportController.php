@@ -71,7 +71,12 @@ class CsvImportController extends Controller
                 $tmp[$header] = $row[$k];
             }
 
-            
+            if(Auth::user()->role()->where('id', 3)->exists()){ 
+  				$tmp['created_by_id'] =  Auth::id(); 
+ 			} else { 
+  				$tmp['created_by_team_id'] =  Auth::user()->team_id; 
+ 			} 
+
             $insert[] = $tmp;
 
         }

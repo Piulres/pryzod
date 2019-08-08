@@ -44,8 +44,9 @@ class UsersController extends Controller
         
         $roles = \App\Role::get()->pluck('title', 'id');
 
+        $teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
 
-        return view('admin.users.create', compact('roles'));
+        return view('admin.users.create', compact('roles', 'teams'));
     }
 
     /**
@@ -82,10 +83,11 @@ class UsersController extends Controller
         
         $roles = \App\Role::get()->pluck('title', 'id');
 
+        $teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
 
         $user = User::findOrFail($id);
 
-        return view('admin.users.edit', compact('user', 'roles'));
+        return view('admin.users.edit', compact('user', 'roles', 'teams'));
     }
 
     /**
@@ -123,7 +125,8 @@ class UsersController extends Controller
         }
         
         $roles = \App\Role::get()->pluck('title', 'id');
-$user_actions = \App\UserAction::where('user_id', $id)->get();$internal_notifications = \App\InternalNotification::whereHas('users',
+
+        $teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');$user_actions = \App\UserAction::where('user_id', $id)->get();$internal_notifications = \App\InternalNotification::whereHas('users',
                     function ($query) use ($id) {
                         $query->where('id', $id);
                     })->get();

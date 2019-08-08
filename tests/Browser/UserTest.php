@@ -29,6 +29,7 @@ class UserTest extends DuskTestCase
                 ->select('select[name="role[]"]', $relations[0]->id)
                 ->select('select[name="role[]"]', $relations[1]->id)
                 ->check("approved")
+                ->select("team_id", $user->team_id)
                 ->press('Save')
                 ->assertRouteIs('admin.users.index')
                 ->assertSeeIn("tr:last-child td[field-key='name']", $user->name)
@@ -36,6 +37,7 @@ class UserTest extends DuskTestCase
                 ->assertSeeIn("tr:last-child td[field-key='role'] span:first-child", $relations[0]->title)
                 ->assertSeeIn("tr:last-child td[field-key='role'] span:last-child", $relations[1]->title)
                 ->assertChecked("approved")
+                ->assertSeeIn("tr:last-child td[field-key='team']", $user->team->name)
                 ->logout();
         });
     }
@@ -61,6 +63,7 @@ class UserTest extends DuskTestCase
                 ->select('select[name="role[]"]', $relations[0]->id)
                 ->select('select[name="role[]"]', $relations[1]->id)
                 ->check("approved")
+                ->select("team_id", $user2->team_id)
                 ->press('Update')
                 ->assertRouteIs('admin.users.index')
                 ->assertSeeIn("tr:last-child td[field-key='name']", $user2->name)
@@ -68,6 +71,7 @@ class UserTest extends DuskTestCase
                 ->assertSeeIn("tr:last-child td[field-key='role'] span:first-child", $relations[0]->title)
                 ->assertSeeIn("tr:last-child td[field-key='role'] span:last-child", $relations[1]->title)
                 ->assertChecked("approved")
+                ->assertSeeIn("tr:last-child td[field-key='team']", $user2->team->name)
                 ->logout();
         });
     }
@@ -93,6 +97,7 @@ class UserTest extends DuskTestCase
                 ->assertSeeIn("tr:last-child td[field-key='role'] span:first-child", $relations[0]->title)
                 ->assertSeeIn("tr:last-child td[field-key='role'] span:last-child", $relations[1]->title)
                 ->assertNotChecked("approved")
+                ->assertSeeIn("td[field-key='team']", $user->team->name)
                 ->logout();
         });
     }
