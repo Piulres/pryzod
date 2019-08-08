@@ -24,6 +24,12 @@ return [
 		'time-projects' => [		'title' => 'Projects',		'fields' => [			'name' => 'Name',		],	],
 		'time-entries' => [		'title' => 'Time entries',		'fields' => [			'work-type' => 'Work type',			'project' => 'Project',			'start-time' => 'Start time',			'end-time' => 'End time',		],	],
 		'time-reports' => [		'title' => 'Reports',		'fields' => [		],	],
+		'expense-management' => [		'title' => 'Expense Management',		'fields' => [		],	],
+		'expense-category' => [		'title' => 'Expense Categories',		'fields' => [			'name' => 'Name',		],	],
+		'income-category' => [		'title' => 'Income categories',		'fields' => [			'name' => 'Name',		],	],
+		'income' => [		'title' => 'Income',		'fields' => [			'income-category' => 'Income Category',			'entry-date' => 'Entry date',			'amount' => 'Amount',		],	],
+		'expense' => [		'title' => 'Expenses',		'fields' => [			'expense-category' => 'Expense Category',			'entry-date' => 'Entry date',			'amount' => 'Amount',		],	],
+		'monthly-report' => [		'title' => 'Monthly report',		'fields' => [		],	],
 	'app_create' => 'Criar',
 	'app_save' => 'Guardar',
 	'app_edit' => 'Editar',
