@@ -62,6 +62,15 @@ Route::group(['middleware' => ['auth', 'approved'], 'prefix' => 'admin', 'as' =>
     Route::resource('time_entries', 'Admin\TimeEntriesController');
     Route::post('time_entries_mass_destroy', ['uses' => 'Admin\TimeEntriesController@massDestroy', 'as' => 'time_entries.mass_destroy']);
     Route::resource('time_reports', 'Admin\TimeReportsController');
+    Route::resource('expense_categories', 'Admin\ExpenseCategoriesController');
+    Route::post('expense_categories_mass_destroy', ['uses' => 'Admin\ExpenseCategoriesController@massDestroy', 'as' => 'expense_categories.mass_destroy']);
+    Route::resource('income_categories', 'Admin\IncomeCategoriesController');
+    Route::post('income_categories_mass_destroy', ['uses' => 'Admin\IncomeCategoriesController@massDestroy', 'as' => 'income_categories.mass_destroy']);
+    Route::resource('incomes', 'Admin\IncomesController');
+    Route::post('incomes_mass_destroy', ['uses' => 'Admin\IncomesController@massDestroy', 'as' => 'incomes.mass_destroy']);
+    Route::resource('expenses', 'Admin\ExpensesController');
+    Route::post('expenses_mass_destroy', ['uses' => 'Admin\ExpensesController@massDestroy', 'as' => 'expenses.mass_destroy']);
+    Route::resource('monthly_reports', 'Admin\MonthlyReportsController');
 
     Route::model('messenger', 'App\MessengerTopic');
     Route::get('messenger/inbox', 'Admin\MessengerController@inbox')->name('messenger.inbox');
